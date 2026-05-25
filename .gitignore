@@ -1,43 +1,80 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# =======================================================================
+#   PROYECTO SOCIOTECNOLÓGICO III - UNETI (GRUPO N° 8)
+#   Gestión de Combustible CANTV - Aplicación Móvil & API REST
+# =======================================================================
 
-# dependencies
+# -----------------------------------------------------------------------
+# 1. DEPENDENCIAS (Nunca se suben al repositorio)
+# -----------------------------------------------------------------------
 node_modules/
+.pnpm-store/
+jspm_packages/
 
-# Expo
+# -----------------------------------------------------------------------
+# 2. SEGURIDAD Y VARIABLES DE ENTORNO (¡CRÍTICO para CANTV!)
+# -----------------------------------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+*.pem
+*.key
+
+# -----------------------------------------------------------------------
+# 3. EXPO & METRO (Frontend de la Aplicación Móvil)
+# -----------------------------------------------------------------------
 .expo/
+.expo-shared/
 dist/
 web-build/
 expo-env.d.ts
+.metro*
+.metro-health-check*
 
-# Native
+# -----------------------------------------------------------------------
+# 4. CARPETAS Y SEGURIDAD NATIVA (Para compilar la APK de Android)
+# -----------------------------------------------------------------------
+# Oculta las carpetas nativas si usas Expo Managed Workflow (se autogeneran)
+/android
+/ios
+
+# Archivos de configuración local y llaves de firmado (¡NUNCA SUBIR EL JKS!)
 .kotlin/
 *.orig.*
 *.jks
 *.p8
 *.p12
-*.key
 *.mobileprovision
 
-# Metro
-.metro-health-check*
-
-# debug
+# -----------------------------------------------------------------------
+# 5. LOGS Y DATOS EN TIEMPO DE EJECUCIÓN (Servidor Backend)
+# -----------------------------------------------------------------------
+logs
+*.log
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# macOS
+# -----------------------------------------------------------------------
+# 6. CACHÉ Y TEMPORALES DEL SISTEMA
+# -----------------------------------------------------------------------
+tmp/
+temp/
+.cache/
+.nyc_output/
+coverage/
+*.lcov
+.tsbuildinfo
+
+# Archivos basura generados por Windows / macOS
 .DS_Store
-*.pem
-
-# local env files
-.env*.local
-
-# typescript
-*.tsbuildinfo
-
-app-example
-
-# generated native folders
-/ios
-/android
+Thumbs.db
+ehthumbs.db
+Icon?
+!Icon
